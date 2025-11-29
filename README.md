@@ -1,7 +1,3 @@
-
----
-
-```markdown
 # 🏠 Sound Realty – ML Home Price Prediction API
 
 A complete end-to-end machine learning prototype that trains a regression model to predict **home sale prices** and exposes the model as a **FastAPI-powered REST API**.  
@@ -9,19 +5,9 @@ The service runs locally or inside Docker and is designed as a starting point fo
 
 ---
 
-## 📌 Status & Tech Stack
-
-![Python](https://img.shields.io/badge/Python-3.11-blue.svg)
-![FastAPI](https://img.shields.io/badge/FastAPI-API%20Framework-brightgreen)
-![Docker](https://img.shields.io/badge/Docker-Ready-blue)
-![scikit-learn](https://img.shields.io/badge/ML-scikit--learn-orange)
-![Status](https://img.shields.io/badge/Project-Prototype-yellow)
-
----
-
 ## 📁 Project Structure
 
-```
+
 
 sound-realty-ml-api/
 ├── app.py                  # FastAPI app exposing the prediction endpoint
@@ -35,9 +21,8 @@ sound-realty-ml-api/
 │   └── kc_house_data.csv   # Dataset used for training
 └── README.md               # Documentation (this file)
 
-````
 
----
+
 
 # 🎯 Project Objective
 
@@ -203,40 +188,10 @@ print(res.json())
 
 ---
 
-# 📊 Model Training Workflow
 
-1. **Load dataset**
-   `kc_house_data.csv` includes ~21K rows of real Seattle-area sales.
 
-2. **Feature preprocessing**
 
-   * Handle numeric fields
-   * Drop irrelevant columns
-   * Optionally scale/encode features
 
-3. **Model selection**
-   Baseline options include:
-
-   * Linear Regression
-   * Random Forest
-   * Gradient Boosting
-
-4. **Model artifact saved**
-   Using `pickle` or `joblib`.
-
-5. **Load model in app**
-   FastAPI loads model at startup for fast inference.
-
----
-
----
-
-# 📜 License
-
-This project is for learning, prototyping, and demonstration purposes.
-You may modify and reuse it freely.
-
----
 
 ```
 
