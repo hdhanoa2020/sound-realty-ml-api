@@ -69,6 +69,13 @@ python create_model.py
 
 This generates a saved model file (e.g., `model.pkl`).
 
+### 3.1 . Imrove the  model
+```bash
+python improve_model.py
+```
+
+This generates a saved model file (e.g., `model.pkl`).
+
 ### 4. Run the API
 
 ```bash
