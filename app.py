@@ -24,6 +24,12 @@ with open(MODEL_PATH, "rb") as f:
 with open(FEATURES_PATH, "r") as f:
     model_features: List[str] = json.load(f)
 
+print("Loaded MODEL_PATH:", MODEL_PATH)
+print("Loaded FEATURES_PATH:", FEATURES_PATH)
+print("Loaded feature count:", len(model_features))
+print("Loaded model_features:", model_features)
+
+
 demographics_df = pd.read_csv(DEMOGRAPHICS_PATH)
 # assume there is a 'zipcode' column
 demographics_df = demographics_df.set_index("zipcode")
@@ -57,17 +63,25 @@ def prepare_features(input_row: Dict[str, Any]) -> pd.DataFrame:
         # Combine base + demographics
         full_series = pd.concat([row_series, demo_series])
 
-        # Step 3: keep only the features the model expects, in order
+            # Step 3: keep only the features the model expects, in order
         missing_features = [f for f in model_features if f not in full_series.index]
         if missing_features:
             raise KeyError(f"Missing required features: {missing_features}")
 
-        # 🔴 OLD CODE (for the old, non-pipeline model)
-        # ordered_values = full_series[model_features].values.astype(float)
-        # return ordered_values.reshape(1, -1)
+        # Optional: see what extra stuff is in full_series
+        extra_features = [idx for idx in full_series.index if idx not in model_features]
+        print("Extra features in full_series (ignored):", extra_features)
 
-        # ✅ NEW CODE: return a 1-row DataFrame with the correct columns
-        ordered_df = full_series[model_features].to_frame().T
+        # Build values in the exact order expected by the model
+        ordered_values = [full_series[f] for f in model_features]
+
+        ordered_df = pd.DataFrame([ordered_values], columns=model_features)
+
+        # Debug: confirm columns sent to model
+        print("X columns passed into model.predict:", list(ordered_df.columns))
+        print("Model expects these features:", model_features)
+        print("Number of features in X:", ordered_df.shape[1])
+
         return ordered_df
 
     except Exception as e:
