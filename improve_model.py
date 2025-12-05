@@ -75,13 +75,24 @@ def main():
         "sqft_lot15",
     ]
 
-    # Demographic numeric columns – update to match your CSV column names
+    # Demographic numeric columns
     demo_numeric_features = [
-        # Example: uncomment and change to your real columns:
-        # "median_income",
-        # "population",
-        # "avg_household_size",
+        "medn_hshld_incm_amt",
+        "medn_incm_per_prsn_amt",
+        "hous_val_amt",
+        "per_urbn",
+        "per_sbrbn",
+        "per_farm",
+        "per_non_farm",
+        "per_less_than_9",
+        "per_9_to_12",
+        "per_hsd",
+        "per_some_clg",
+        "per_assoc",
+        "per_bchlr",
+        "per_prfsnl"
     ]
+
 
     categorical_features = [
         "zipcode",
