@@ -128,21 +128,27 @@ http://localhost/docs
 ### Example Request
 
 ```json
-{
-  "bedrooms": 3,
-  "bathrooms": 2,
-  "sqft_living": 1800,
-  "sqft_lot": 5000,
-  "floors": 2,
-  "waterfront": 0,
-  "view": 0,
-  "condition": 3,
-  "grade": 7,
-  "sqft_above": 1500,
-  "sqft_basement": 300,
-  "yr_built": 1990,
-  "zipcode": 98103
-}
+ {
+    "bedrooms": 3,
+    "bathrooms": 1.0,
+    "sqft_living": 1180,
+    "sqft_lot": 5650,
+    "floors": 1.0,
+    "sqft_above": 1180,
+    "sqft_basement": 0,
+    "yr_built": 1955,
+    "yr_renovated": 0,
+    "lat": 47.5112,
+    "long": -122.257,
+    "sqft_living15": 1340,
+    "sqft_lot15": 5650,
+    "zipcode": 98178,
+    "waterfront": 0,
+    "view": 0,
+    "condition": 3,
+    "grade": 7
+ }
+
 ```
 
 ### Example Response
